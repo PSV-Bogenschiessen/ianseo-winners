@@ -3,8 +3,8 @@ import name_lookup
 
 ### CONFIG
 tournament_name = 'PSV Cup 2020'
-filename = 'Matches.csv'
-output_filename = 'Placings.csv'
+filename = 'tournament_Matches.csv'
+output_filename = 'individuals_finals_placings.csv'
 
 ### OUTPUT CONFIG
 name_col = 'Name'
@@ -12,6 +12,7 @@ country_col = 'Verein'
 class_col = 'Klasse'
 tournament_col = 'Turnier'
 rank_col = 'Rang'
+max_num_per_event = 3  # between 1 and 4
 
 ### IANSEO CONFIG
 event_col = 'Event'
@@ -71,7 +72,7 @@ def main():
 
     # sort
     for event, result_list in results.items():
-        results[event] = list(sorted(result_list, key=lambda res: res['Place']))
+        results[event] = list(sorted(result_list, key=lambda res: res['Place'])[:max_num_per_event])
 
 
     # write out table for form letters
