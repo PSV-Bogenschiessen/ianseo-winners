@@ -1,5 +1,6 @@
 import csv
 import name_lookup
+from dataclasses import dataclass
 
 ### CONFIG
 tournament_name = 'PSV Cup 2020'
@@ -46,8 +47,10 @@ def main():
 
         if (row[division_col], row[class_col]) not in results.keys():
             results[(row[division_col], row[class_col])] = []
-        results[(row[division_col], row[class_col])]\
-            .append(Shooter(name, country, division, clas, score, xs, xs_and_tens))
+        
+        shooter = Shooter(name, country, division, clas, score, xs, xs_and_tens)
+        if shooter not in results[(row[division_col], row[class_col])]:
+            results[(row[division_col], row[class_col])].append(shooter)
 
     # sort and add rank
     for key, participants_list in results.items():
@@ -76,18 +79,16 @@ def main():
                 out_rank_col: participant.rank
             })
 
-
+@dataclass
 class Shooter:
-    def __init__(self, name: str, country: str, division: str, clas: str, score: int, xs: int, xs_and_tens: int, rank: int = 0):
-        self.name = name
-        self.country = country
-        self.division = division
-        self.clas = clas
-        self.score = score
-        self.xs = xs
-        self.xs_and_tens = xs_and_tens
-        self.rank = rank
-
-
+    name: str
+    country: str
+    division: str
+    clas: str
+    score: int
+    xs: int
+    xs_and_tens: int
+    rank: int = 0
+ 
 if __name__ == '__main__':
     main()
