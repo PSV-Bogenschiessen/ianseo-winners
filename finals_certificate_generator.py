@@ -1,6 +1,6 @@
 import csv
 
-filename = 'individuals_finals_placings.csv'
+filename = 'individual_qualifications_placings.csv'
 name_col = 'Name'
 country_col = 'Verein'
 class_col = 'Klasse'
