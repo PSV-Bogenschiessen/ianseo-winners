@@ -22,6 +22,7 @@ giv_name_col = 'GivenName'
 country_col = 'Country'
 division_col = 'Division'
 class_col = 'Class'
+subclass_col = 'SubClass'
 score_cols = 'Score'
 xs_score_cols = 'X'
 xs_and_tens_score_cols = '10+X'
@@ -44,6 +45,9 @@ def main():
         score = int(row[score_cols])
         xs = int(row[xs_score_cols])
         xs_and_tens = int(row[xs_and_tens_score_cols])
+
+        if row[subclass_col]:
+            continue
 
         if (row[division_col], row[class_col]) not in results.keys():
             results[(row[division_col], row[class_col])] = []
