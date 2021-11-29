@@ -3,8 +3,8 @@ import name_lookup
 from dataclasses import dataclass
 
 ### CONFIG
-tournament_name = 'PSV Cup 2020'
-filename = 'tournament.csv'
+tournament_name = 'Vereinsmeisterschaft Halle 2022'
+filename = 'VM_In22.txt'
 output_filename = 'individual_qualifications_placings.csv'
 
 ### OUTPUT CONFIG
@@ -14,7 +14,7 @@ out_class_col = 'Klasse'
 out_tournament_col = 'Turnier'
 out_score_col = 'Ringe'
 out_rank_col = 'Rang'
-max_num_per_event = 5
+max_num_per_event = 3
 
 ### IANSEO CONFIG
 fam_name_col = 'FamilyName'
@@ -24,8 +24,8 @@ division_col = 'Division'
 class_col = 'Class'
 subclass_col = 'SubClass'
 score_cols = 'Score'
-xs_score_cols = 'X'
-xs_and_tens_score_cols = '10+X'
+xs_score_cols = '10'
+xs_and_tens_score_cols = '9'
 
 
 def main():
